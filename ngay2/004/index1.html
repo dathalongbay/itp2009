@@ -16,6 +16,10 @@
         placeholder là thuộc tính gợi ý cho thẻ input
 
         tạo ra thẻ nút bấm bằng thẻ button
+
+
+        *** làm sao chọn trước giá trị hiển thị radio
+        thêm checked vào trong thẻ input radio
     </pre>
 
     <form name="tiki" method="post" action="">
@@ -39,6 +43,18 @@
         <p>
             <label>Email</label>
             <input type="email" name="email" value="" placeholder="Nhập email" >
+        </p>
+
+        <p>
+            <label>Mật khẩu</label>
+            <input type="password" name="matkhau" value="" placeholder="Mật khẩu từ 6 đến 32 ký tự">
+        </p>
+
+        <p>
+            <label>Giới tính</label>
+
+            <input type="radio" name="gioitinh" value="1" > Nam
+            <input type="radio" name="gioitinh" value="0" checked> Nữ
         </p>
 
        
