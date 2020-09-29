@@ -13,8 +13,9 @@
         Khi di chuột vào thẻ p thì hiện tooltip
         có chữ là : Hà nội là thủ đô của "việt nam"
         *** giải quyết :
-        cách 1 : dùng ký hiện escape ( dấu xược ngược \ ) trước nháy kép
-        ( tạm dừng )
+        cách 1 : dùng html entity
+        nháy kép thì sử dụng &#34;
+        nháy đơn thì sử dụng &#39;
         cách 2 : dùng nháy đơn để chứa giá trị 
     </pre>
 
@@ -27,5 +28,8 @@
     </pre>
 
     <p title="Hà nội là thủ đô của 'việt nam'"> Hà nội</p>
+
+    <p title="Hà nội là thủ đô của &#34;việt nam&#34; "> Hà nội</p>
+    <p title='Hà nội là thủ đô của &#39;việt nam&#39; '> Hà nội</p>
 </body>
 </html>
