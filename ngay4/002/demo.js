@@ -1,0 +1,1 @@
+alert("hôm nay là trung thu");
