@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #target1 {
+            border-top-color: orange;
+            border-left-color: green; 
+            border-right-color: pink;
+            border-bottom-color: gray; 
+
+            border-top-width: 2px;
+            border-left-width: 4px;
+            border-right-width: 6px;
+            border-bottom-width: 8px;
+
+            border-top-style: solid;
+            border-left-style: dotted;
+            border-right-style: dashed;
+            border-bottom-style: double;
+        }
+    </style>
+</head>
+<body>
+    <pre>
+        border theo các cạnh khác nhau :
+        top ( trên )
+        left ( trái )
+        right ( phải )
+        bottom ( dưới )
+
+        các thuộc tính 
+        border-color , border-style , border-width dùng chung cho cả 4 cạnh 
+        của border 
+        nếu muốn border theo 4 cạnh khác nhau thì làm theo kiểu như sau :
+        border-X-color ( trong đó X là 1 trong 4 giá trị top, left , right , bottom)
+        border-X-style ( trong đó X là 1 trong 4 giá trị top, left , right , bottom)
+        border-X-width ( trong đó X là 1 trong 4 giá trị top, left , right , bottom)
+    </pre>
+
+    <div id="target1">
+        <h1>Demo 4 cạnh mà có đường viền khác nhau</h1>
+    </div>
+</body>
+</html>
