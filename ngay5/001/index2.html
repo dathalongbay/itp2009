@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .demo {
+            width: 100%;
+            height: 300px; 
+            border: 2px solid green;
+            background-image: url("iphone-11-red-2-400x460-400x460.png");
+            background-repeat: no-repeat;
+            margin-bottom: 20px;
+        }
+
+        #target {
+            background-position: 0% 50%;
+        }
+
+        #target1 {
+            background-position: 50% 0%;
+        }
+        #target2 {
+            background-position: 100% 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        sử dụng đơn vị % cho thuộc tính background-position
+        background-position: X Y; ( ngang dọc )
+        trong đó X là chiều ngang ( trục X )
+        Y là chiều dọc ( trục Y )
+    
+    </pre>
+    
+
+    <div id="target" class="demo">
+        background-position: 0% 50%;
+    </div>
+    <div id="target1" class="demo">
+        background-position: 50% 0%;
+    </div>
+    <div id="target2" class="demo">
+        background-position: 100% 100%;
+    </div>
+</body>
+</html>
