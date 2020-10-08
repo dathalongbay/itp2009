@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #box1 {
+            width: 400px;
+            height: 200px;
+            background-color: green;
+            border: 1px solid red;
+
+            /* margin */
+            margin-top: 30px;
+            margin-bottom: 30px;
+
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+
+        #box2 {
+            width: 400px;
+            height: 200px;
+            background-color: green;
+            border: 1px solid red;
+
+            /* margin */
+            margin: 30px 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        khi mà margin-top bằng margin-bottom 
+        đồng thời margin-left bằng margin-right 
+        thì mình có cách viết rút gọn :
+        margin: A B;
+        trong đó A là giá trị margin-top ( margin-bottom )
+        B là giá trị margin-left ( margin-right )
+    </pre>
+
+    <div id="box1">
+        Không sử dụng cách viết rút gọn
+    </div>
+    <div id="box2">
+        Sử dụng cách viết rút gọn
+    </div>
+    
+</body>
+</html>
