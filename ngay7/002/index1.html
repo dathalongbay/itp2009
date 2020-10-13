@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .container {
+            background-color: greenyellow;
+            padding: 20px;
+
+            height: 600px;
+        }
+
+        .container .main-content {
+            width: 400px;
+            height: 500px;
+            background-color: #ffa500;
+            color: white;
+
+            float: left;
+        }
+
+        .container .sidebar {
+            width: 300px;
+            background-color: green;
+            color: white;
+            height: 500px;
+        }
+
+        .sidebar-left {
+            float: left;
+        }
+
+        .sidebar-right {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        float ( trôi )
+        float: left; trôi sang trái
+        float: right: trôi sang phải
+        float: none; không trôi là giá trị mặc định
+    </pre>
+
+    <div class="container">
+
+        <div class="sidebar sidebar-left">
+            <h3>Nội dung phụ của trang web</h3>
+        </div>
+
+        <div class="main-content">
+            <h1>Main content</h1>
+        </div>
+
+        <div class="sidebar sidebar-right">
+            <h3>Nội dung phụ của trang web</h3>
+        </div>
+    </div>
+
+</body>
+</html>
