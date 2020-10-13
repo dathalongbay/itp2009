@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .container {
+            border: 2px solid green;
+            height: 400px;
+        }
+
+        .container img {
+            float: left;
+        }
+
+        .container p {
+            background-color: greenyellow;
+            /*chống trôi*/
+            clear: left;
+        }
+    </style>
+</head>
+<body>
+    <pre>
+        thuộc tính clear chống thẻ bên cạnh mà bị float
+        clear: left;
+        clear: right;
+        clear: both;
+
+        vấn đề : khi thẻ A bên cạnh thẻ B
+        mà thẻ A bị float: left; kéo thẻ B bên cạnh trôi sang trái cùng nó
+        mà thẻ A bị float: right; kéo thẻ bên cạnh B trôi sang phải cùng nó
+
+        Khi thẻ B không muốn thẻ A ảnh bưởng thì sẽ phải sử dụng thuộc tính clear
+        nếu A float:left ; B muốn chống trôi sang trái clear: left;
+        nếu A float:right; thì B muốn chống trôi thì clear: right;
+        trong trường hợp không biết thẻ A bị float sang hướng nào
+        thì thẻ B clear: both; chống trôi sang cả 2 hướng
+    </pre>
+
+    <div class="container">
+        <img src="iphone-11-red-2-400x460-400x460.png" style="width:300px">
+        <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam ea est fuga hic laborum molestias mollitia natus nulla provident repellendus saepe vel velit, veritatis voluptate. Ab aliquid odio suscipit.</p>
+    </div>
+
+</body>
+</html>
