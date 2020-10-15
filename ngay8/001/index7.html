@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <pre>
+        tính chu vi hình chữ nhật
+        tính diện tích hình chữ nhật
+    </pre>
+
+    <p id="kq"></p>
+
+    <script>
+        // input :
+        // x và y được gọi là tham số của hàm
+        function tinhChuViHCN(x, y) {
+            // P = 2(a + b);
+
+            var p = 2*(x+y);
+            // output
+            return p;
+        }
+
+        // gọi hàm
+        var kq = tinhChuViHCN(10, 20);
+        document.getElementById("kq").innerText = "kết quả là : " + kq;
+    </script>
+
+</body>
+</html>
