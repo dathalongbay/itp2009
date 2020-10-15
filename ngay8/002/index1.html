@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <pre>
+        sự kiện trong js
+        hành động xảy ra trên trình duyệt hoặc hành động từ phía người dùng
+        click
+    </pre>
+
+    <form action="">
+        <div><input type="text" name="hoten" id="hoten"></div>
+        <div>
+            <button onclick="chao()">Click here</button>
+        </div>
+    </form>
+
+    <script>
+
+        function chao() {
+            // lấy giá trị trong input
+            // tạo ra 1 câu chào
+
+            var hoten = document.getElementById("hoten").value;
+            alert("chào " + hoten);
+        }
+
+    </script>
+
+</body>
+</html>
