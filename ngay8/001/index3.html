@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <pre>
+        bộ chọn ( selector ) trong css chọn 1 thẻ html , id , class ...
+        trong js chọn 1 thẻ dựa vào id thì dùng lệnh :
+        document.getElementById("")
+    </pre>
+
+    <div id="demo1"></div>
+
+    <div id="demo2"></div>
+
+    <script>
+        // gán văn bản vào thẻ html dựa vào id
+        document.getElementById("demo1").innerText = "hôm nay là ngày 15 tháng 10";
+
+        // gán html vào thẻ html dựa vào id
+        document.getElementById("demo2").innerHTML = "<a href='#'>Google</a>";
+    </script>
+
+
+
+</body>
+</html>
