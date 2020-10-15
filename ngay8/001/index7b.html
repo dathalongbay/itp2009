@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <pre>
+        *** Phạm vi của biến
+        1 - biến toàn cục là biến có phạm vi ảnh hưởng ở tất cả mọi nơi
+        trừ bên trong hàm
+        và biến toàn cục được khai báo bên ngoài hàm
+        bên trong hàm không sử dụng được biến toàn cục
+        2 - biến cục bộ là những biến được khai báo bên trong hàm
+        tham số đầu vào của hàm cũng là biến cục bộ
+    </pre>
+
+    <p id="kq"></p>
+
+    <script>
+        // input :
+        // x và y được gọi là tham số của hàm
+        function tinhChuViHCN(x, y) {
+            // P = 2(a + b);
+
+            // x và y là tham số của hàm
+            // chỉ có tác dụng trong hàm
+            // x và y là biến cục bộ
+            // không có tác dụng bên ngoài hàm
+
+            // biến p là biến cục bộ
+            var p = 2*(x+y);
+
+            // không sử dụng được biến toàn cục bên trong hàm
+
+            // output
+            return p;
+        }
+
+        // gọi hàm
+        // x và y bên ngoài hàm là biến toàn cục
+        var x = 10;
+        var y = 20;
+        // kq là biến toàn cục
+        var kq = tinhChuViHCN(x, y);
+        document.getElementById("kq").innerText = "kết quả là : " + kq;
+    </script>
+
+</body>
+</html>
