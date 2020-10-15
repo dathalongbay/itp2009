@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="">
+    <div><input type="text" name="namsinh" id="namsinh"></div>
+    <button onclick="kiemtratuoi()">Click here</button>
+</form>
+
+
+<script>
+    function kiemtratuoi() {
+
+        var namsinh = document.getElementById("namsinh").value;
+
+        if (namsinh < 2002) {
+            alert("Bạn được phép truy cập vào trang web");
+        } else {
+            alert("Bạn chưa đủ 18 tuổi");
+        }
+    }
+
+</script>
+</body>
+</html>
