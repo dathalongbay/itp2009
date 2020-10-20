@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <ul id="target1">
+
+    </ul>
+
+<script>
+
+    // cách 1
+    // var cities = ["hà nội", "hồ chí minh", "đà nẵng", "nghệ an"];
+
+    // cách 2
+    var cities = new Array("hà nội", "hồ chí minh", "đà nẵng", "nghệ an");
+
+
+    console.log(cities);
+
+    var n = "";
+
+    for (var i = 0; i < cities.length;i++ ) {
+        n += "<li>"+cities[i]+"</li>";
+    }
+
+    console.log(n);
+
+    document.getElementById("target1").innerHTML = n;
+
+</script>
+
+</body>
+</html>
