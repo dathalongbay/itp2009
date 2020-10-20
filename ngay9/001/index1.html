@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <pre>
+        > ( lớn hơn )
+        < ( nhỏ hơn )
+        == ( so sánh bằng tương đối ) chỉ so sánh giá trị
+        = ( phép gán )
+        === ( so sánh bằng tuyệt đối ) vừa so sánh giá trị và
+        so sánh thêm cả kiểu dữ liệu
+        if (điều kiện) {
+            // nếu điều kiện trả về true thì thực hiện các câu lệnh
+            // trong {} đầu tiên
+        } else {
+            // nếu điều kiện trả về true thì thực hiện các câu lệnh
+            // trong {} sau từ khóa else
+        }
+    </pre>
+
+    <script>
+        // lấy ra ngày hiện tại bằng js
+        var d = new Date();
+        // lấy ra tháng 0 đến 11
+        var thang = d.getMonth();
+
+        console.log("tháng : " + thang);
+        if (thang > 6) {
+            alert("nửa cuối năm");
+        } else {
+            alert("nửa đầu năm");
+        }
+
+    </script>
+
+</body>
+</html>
