@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var cities = ["hà nội", "hồ chí minh", "đà nẵng", "nghệ an"];
+    
+    // cách 1 : biến có mảng hay không
+    if (Array.isArray(cities)) {
+        console.log("đây là 1 mảng");
+    }
+
+    // cách 2
+    if (cities instanceof Array) {
+        console.log("đây là 1 mảng");
+    }
+</script>
+
+</body>
+</html>
