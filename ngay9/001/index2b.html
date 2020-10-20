@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <pre>
+        if (điều kiện 1) {
+            // nếu điều kiện 1 == true thì chạy các câu lệnh ở đây
+        } else if (điều kiện 2) {
+            // nếu điều kiện 2 == true thì chạy các câu lệnh ở đây
+        } else if (điều kiện 3) {
+            // nếu điều kiện 3 == true thì chạy các câu lệnh ở đây
+        } ...
+        else {
+            // các trường hợp còn lại
+        }
+
+        *** chú ý
+        nếu nhiều điều kiện cùng đúng thì if hay else if nào
+        phía trước sẽ được chạy mà không chạy các else if phía sau
+    </pre>
+
+    <script>
+
+        var tuoi = 21;
+
+        if (tuoi > 22) {
+            console.log("tuổi lao động");
+        } else if (tuoi > 18) {
+            console.log("sinh viên");
+        } else if (tuoi > 15) {
+            console.log("học cấp 3");
+        } else if (tuoi > 11) {
+            console.log("học cấp 2");
+        } else if (tuoi > 6) {
+            console.log("học cấp 1");
+        } else if (tuoi > 3) {
+            console.log("trẻ mầm non");
+        } else {
+            console.log("trẻ sơ sinh");
+        }
+    </script>
+
+</body>
+</html>
