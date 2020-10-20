@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <pre>
+        switch(biểu thức) {
+            case x:
+                // biểu thức == x thực hiện các câu lệnh
+                break;
+            case y:
+                // biểu thức == y thực hiện các câu lệnh
+                break;
+            default:
+                // các câu lệnh sẽ chạy khi biểu thức không khác tất
+                // cả các trường hợp
+        }
+    </pre>
+
+    <script>
+        // thời khóa biểu
+        var d = new Date();
+
+        // 0 - 6
+        var thu = d.getDay();
+
+        switch (thu) {
+            case 0:
+                console.log("CN : nghỉ");
+                break;
+            case 1:
+                console.log("Thứ 2 : HTML");
+                break;
+            case 2:
+                console.log("Thứ 3 : CSS");
+                break;
+            case 3:
+                console.log("Thứ 4 : Photoshop");
+                break;
+            case 4:
+                console.log("Thứ 5 : Javascript");
+                break;
+            case 5:
+                console.log("Thứ 6 : PHP");
+                break;
+            default:
+                // các trường hợp còn lại
+                console.log("Thứ 7 : nghỉ");
+                break;
+        }
+    </script>
+
+</body>
+</html>
