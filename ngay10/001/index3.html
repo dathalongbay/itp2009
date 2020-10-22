@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div class="demo5">Class html demo5</div>
+    <div class="demo5">Class html demo5</div>
+    <div class="demo5">Class html demo5</div>
+    <p class="demo5">Class html demo5</p>
+
+    <button onclick="demo()">Click here</button>
+
+    <script>
+        function demo() {
+
+            var x = document.getElementsByTagName("div");
+
+            console.log(x);
+
+            x[0].innerHTML = "Thay đổi nội dung của class demo5 thứ 1";
+            x[1].innerHTML = "Thay đổi nội dung của class demo5 thứ 1";
+            x[2].innerHTML = "Thay đổi nội dung của class demo5 thứ 1";
+
+            // gọi đến thuộc tính style => gọi tiếp thuộc tính css tương ứng
+            // background-color => backgroundColor
+            // font-size => fontSize
+            x[1].style.backgroundColor = "green";
+            x[1].style.fontSize = "24px";
+            x[1].style.color = "red";
+        }
+    </script>
+
+</body>
+</html>
