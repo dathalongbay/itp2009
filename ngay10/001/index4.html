@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div class="demo5">Class html demo5</div>
+    <div class="demo5">Class html demo5</div>
+    <div class="demo5">Class html demo5</div>
+    <p class="demo5">Class html demo5</p>
+
+    <button onclick="demo()">Click here</button>
+
+    <script>
+        function demo() {
+
+            var x = document.getElementsByTagName("div");
+
+            console.log(x);
+            console.log(x.length);
+
+            for (var n = 0; n < x.length; n++) {
+                x[n].innerHTML = "Thay đổi nội dung của class demo5 thứ 1";
+                x[n].style.backgroundColor = "red";
+                x[n].style.color = "green";
+            }
+
+
+        }
+    </script>
+
+</body>
+</html>
