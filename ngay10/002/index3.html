@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <pre>
+        trang chủ : https://jquery.com/
+        jquery là framework của javascript
+
+        $ : tất cả các selector ( bộ chọn ) jquery đều bắt đầu bằng $
+        =>
+        chọn các thẻ p trong jquery : $("p")
+        chọn các thẻ div trong jquery : $("div")
+        chọn các thẻ có class là .intro trong jquery : $(".intro")
+        chọn các thẻ có id là #intro trong jquery : $("#intro")
+        chọn các thẻ có class là demo2 nằm trong class demo1 trong jquery : $(".demo1 .demo2")
+        chọn tất cả document : $(document)
+        .ready() là phương thức trong jquery
+        $(document).ready(); khi load xong mô hình DOM của trang web thì mới chạy đoạn code bên trong
+
+        *** hàm vô danh là hàm chỉ dùng 1 lần duy nhất
+        function() {
+            // code của hàm
+        }
+
+        *** callback là khi thực hiện xong 1 hành động nó mới gọi đến callback
+        ví dụ : chờ đèn đỏ về đèn xanh thì xe cộ mới đi
+    </pre>
+
+    <!-- cài đặt jquery   -->
+
+    <script>
+        $(document).ready(function() {
+            // cái callback function() chỉ được chạy khi mô hình DOM load xong
+            alert("chào jquery");
+        });
+    </script>
+
+
+</body>
+</html>
