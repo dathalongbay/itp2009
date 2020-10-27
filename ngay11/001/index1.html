@@ -3,8 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <style>
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .page-wrap {
+            width: 800px;
+            margin: 0 auto;
+            background-color: green;
+        }
+        form > div {
+            margin: 5px;
+            padding: 10px;
+        }
+
+        form input {
+            padding: 5px;
+        }
+    </style>
 </head>
 <body>
+
+    <div class="page-wrap">
+        <h1>Đăng ký tour du lịch</h1>
+        <form name="dulich" method="post" action="">
+            <div>
+                <label for="">Họ tên (*)</label>
+                <input type="text" name="hoten" value="">
+            </div>
+            <div>
+                <label for="">Giới tính (*)</label>
+                <input type="radio" name="gioitinh" value="1"> Nam
+                <input type="radio" name="gioitinh" value="2"> Nữ
+            </div>
+            
+            <div>
+                <label for="">Địa chỉ (*)</label>
+                <input type="text" name="diachi" value="">
+            </div>
+
+            <div>
+                <label for="">Điện thoại (*)</label>
+                <input type="text" name="dienthoai" value="">
+            </div>
+
+            <div>
+                <label for="">Email (*)</label>
+                <input type="email" name="email" value="">
+            </div>
+
+            <div>
+                <label for="">Chọn tour (*)</label>
+                <input type="checkbox" name="chontour" value="1"> Hạ long
+                <input type="checkbox" name="chontour" value="2"> Sapa
+                <input type="checkbox" name="chontour" value="3"> Đà lạt
+            </div>
+
+            <div>
+                <label for="">Phương tiện</label>
+                <select name="phuongtien">
+                    <option value="1">Ô tô</option>
+                    <option value="2">Tàu hỏa</option>
+                    <option value="3">Máy bay</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="">Thông tin khác</label>
+                <textarea name="thongtinkhac" id="" cols="30" rows="10"></textarea>
+            </div>
+
+            <div>
+                <button type="submit">Đăng ký</button>
+                <button type="reset">Nhập lại</button>
+            </div>
+
+        </form>
+    </div>
+
+
 
 </body>
 </html>
