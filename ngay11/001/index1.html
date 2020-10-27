@@ -14,15 +14,20 @@
         .page-wrap {
             width: 800px;
             margin: 0 auto;
-            background-color: green;
+            background-color: pink;
         }
         form > div {
             margin: 5px;
             padding: 10px;
         }
 
-        form input {
+        form input[type="text"],input[type="email"],select {
             padding: 5px;
+            min-width: 250px;
+        }
+
+        textarea {
+            width: 400px;
         }
     </style>
 </head>
@@ -30,42 +35,45 @@
 
     <div class="page-wrap">
         <h1>Đăng ký tour du lịch</h1>
-        <form name="dulich" method="post" action="">
+        <form name="dulich" method="post"  onsubmit="return false;" >
             <div>
                 <label for="">Họ tên (*)</label>
-                <input type="text" name="hoten" value="">
+                <input type="text" name="hoten" id="hoten" class="require" value="">
+                <span id="hoten-error" style="color:red"></span>
             </div>
             <div>
                 <label for="">Giới tính (*)</label>
-                <input type="radio" name="gioitinh" value="1"> Nam
-                <input type="radio" name="gioitinh" value="2"> Nữ
+                <input type="radio" name="gioitinh" id="gioitinh1" class="gioitinh" value="1"> Nam
+                <input type="radio" name="gioitinh" id="gioitinh2" class="gioitinh" value="2"> Nữ
+                <span id="gioitinh-error" style="color:red"></span>
             </div>
             
             <div>
                 <label for="">Địa chỉ (*)</label>
-                <input type="text" name="diachi" value="">
+                <input type="text" name="diachi" id="diachi" class="require" value="">
+                <span id="diachi-error" style="color:red"></span>
             </div>
 
             <div>
                 <label for="">Điện thoại (*)</label>
-                <input type="text" name="dienthoai" value="">
+                <input type="text" name="dienthoai" id="dienthoai" class="require" value="">
             </div>
 
             <div>
                 <label for="">Email (*)</label>
-                <input type="email" name="email" value="">
+                <input type="email" name="email" id="email" class="require" value="">
             </div>
 
             <div>
-                <label for="">Chọn tour (*)</label>
-                <input type="checkbox" name="chontour" value="1"> Hạ long
-                <input type="checkbox" name="chontour" value="2"> Sapa
-                <input type="checkbox" name="chontour" value="3"> Đà lạt
+                <label for="">Chọn tour</label>
+                <input type="checkbox" name="chontourhalong" id="chontourhalong" value="1"> Hạ long
+                <input type="checkbox" name="chontoursapa" id="chontoursapa" value="2"> Sapa
+                <input type="checkbox" name="chontourdalat" id="chontourdalat" value="3"> Đà lạt
             </div>
 
             <div>
                 <label for="">Phương tiện</label>
-                <select name="phuongtien">
+                <select name="phuongtien" id="phuongtien">
                     <option value="1">Ô tô</option>
                     <option value="2">Tàu hỏa</option>
                     <option value="3">Máy bay</option>
@@ -78,12 +86,107 @@
             </div>
 
             <div>
-                <button type="submit">Đăng ký</button>
+                <button type="submit" onclick="validateDuLieu()">Đăng ký</button>
                 <button type="reset">Nhập lại</button>
             </div>
 
         </form>
     </div>
+
+    <script>
+        function validateDuLieu() {
+            alert('đăng ký');
+
+            // cờ validate đúng
+            var validForm = 1;
+
+            var inputRequire = document.getElementsByClassName("require");
+
+            console.log(inputRequire);
+
+            console.log(document.getElementsByClassName('gioitinh').checked);
+
+            var gioitinhNam = document.getElementById('gioitinh1');
+            var gioitinhNu = document.getElementById('gioitinh2');
+
+            console.log(gioitinhNam);
+            console.log(gioitinhNam.checked);
+            console.log(gioitinhNu);
+            console.log(gioitinhNu.checked);
+
+            if (gioitinhNam.checked == false && gioitinhNu.checked == false) {
+                document.getElementById('gioitinh-error').innerHTML = "Vui lòng chọn giới tính";
+                document.getElementById('gioitinh1').focus();
+                validForm = 0;
+            }
+
+            for (var i = 0; i < inputRequire.length; i++) {
+                console.log(inputRequire[i].value);
+                console.log(inputRequire[i].value.length);
+
+                if (inputRequire[i].value.length < 1) {
+                    console.log(inputRequire[i].name);
+                    if (inputRequire[i].name == 'hoten') {
+                        document.getElementById('hoten-error').innerHTML = "Vui lòng nhập đủ họ tên";
+                        document.getElementById('hoten').focus();
+                        validForm = 0;
+                    }
+
+                    if (inputRequire[i].name == 'diachi') {
+                        document.getElementById('diachi-error').innerHTML = "Vui lòng nhập đủ địa chỉ";
+                        document.getElementById('diachi').focus();
+                        validForm = 0;
+                    }
+
+                }
+            }
+
+            // check validate hoten
+
+            // nguyễn an
+            // nguyễn an lê thạch tuấn
+
+            var pattern_hoten = /^([A-Za-zÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]+\b ){1,4}[A-Za-zÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]+$/;
+            var string_hoten = document.getElementById("hoten").value;
+            console.log("regex" + pattern_hoten.test(string_hoten));
+            if (pattern_hoten.test(string_hoten) == false){
+                document.getElementById('hoten-error').innerHTML = "Định dạng họ tên không hợp lệ";
+                document.getElementById('hoten').focus();
+            }
+
+
+            console.log("-- tour du lich --");
+            var tour = document.getElementById("chontourhalong").checked;
+
+            if ( (document.getElementById("chontourhalong").checked == false) &&
+                (document.getElementById("chontourdalat").checked == false) &&
+                (document.getElementById("chontoursapa").checked == false) ) {
+                // người dùng ko chọn tour nào
+            }
+
+            if (document.getElementById("phuongtien").value != 1 && document.getElementById("phuongtien").value != 2
+            && document.getElementById("phuongtien").value != 3) {
+                // người dùng chưa chọn phương tiên
+            }
+
+
+            // chọn máy bay
+            if (document.getElementById("phuongtien").value == 3) {
+                if (document.getElementById("chontourhalong").checked == true || document.getElementById("chontoursapa").checked == true) {
+                    alert("Không có phương tiên bằng máy bay cho tour này");
+                }
+            }
+
+            if (validForm == 1) {
+                alert("thành công");
+                // submit form
+                window.location="http://www.google.com";
+            }
+
+            return false;
+
+        }
+    </script>
 
 
 
