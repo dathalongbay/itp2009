@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-12">
+            <form>
+                <div class="form-group">
+                    <label>Họ tên</label>
+                    <input type="text" name="hoten" id="hoten" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại</label>
+                    <input type="text" name="sodienthoai" id="sodienthoai" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" id="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Nội dung</label>
+                    <textarea name="noidung" id="noidung" cols="30" rows="10" class="form-control"></textarea>
+                </div>
+            </form>
+
+            <button onclick="guilienhe()" class="btn btn-primary">Gửi liên hệ</button>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function guilienhe() {
+
+        var checkValidate = 1;
+        var thongbaoloi = "";
+
+        var hoten = document.getElementById("hoten").value;
+        var sodienthoai = document.getElementById("sodienthoai").value;
+        var email = document.getElementById("email").value;
+        var noidung = document.getElementById("noidung").value;
+
+        if (hoten.length < 1) {
+            thongbaoloi += "Họ tên không được để trống";
+            checkValidate = 0;
+        } else {
+
+            var pattern_hoten = /^([A-Za-zÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ ]+)$/;
+            console.log("regex hoten : " + pattern_hoten.test(hoten));
+            if (pattern_hoten.test(hoten) == false){
+                thongbaoloi += " Họ tên không hợp lệ";
+                checkValidate = 0;
+            }
+
+        }
+
+
+        if (email.length < 1) {
+            thongbaoloi += "email không được để trống";
+            checkValidate = 0;
+        } else {
+
+            var pattern_email = /^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            console.log("regex email : " + pattern_email.test(email));
+            if (pattern_email.test(email) == false){
+                thongbaoloi += " email không hợp lệ";
+                checkValidate = 0;
+            }
+
+        }
+
+        if (sodienthoai.length < 1) {
+            thongbaoloi += "sodienthoai không được để trống";
+            checkValidate = 0;
+        } else {
+
+            var pattern_sodienthoai = /^\d{10}$/;
+            console.log("regex sodienthoai : " + pattern_sodienthoai.test(sodienthoai));
+            if (pattern_sodienthoai.test(sodienthoai) == false){
+                thongbaoloi += " sodienthoai không hợp lệ";
+                checkValidate = 0;
+            }
+
+        }
+
+        if (noidung.length < 1) {
+            thongbaoloi += " Nội dung không được để trống";
+            checkValidate = 0;
+        }
+
+        if (checkValidate == 1) {
+            alert("Gửi thông tin liên hệ thành công xin cảm ơn !");
+        } else {
+            alert(thongbaoloi);
+        }
+
+    }
+</script>
+
+
+
+</body>
+</html>
