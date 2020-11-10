@@ -36,6 +36,7 @@
 
         if (n < 1 || n > 100) {
             document.getElementById("thongbao").innerHTML = "Vui lòng nhập số nguyên dương thuộc [1 - 100]!!";
+            document.getElementById("n").focus();
         } else {
             var tong = 0;
             for (var i = 1; i <= n; i++) {
