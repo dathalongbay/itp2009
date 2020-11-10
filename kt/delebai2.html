@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-12">
+            <form>
+                <div class="form-group">
+                    <label>Nhập số nguyên dương n thuộc [1 - 100]</label>
+                    <p id="thongbao" style="color:red"></p>
+                    <input type="number" name="n" id="n" class="form-control">
+                </div>
+            </form>
+            <button onclick="kiemtra()" class="btn btn-primary">Kiểm tra</button>
+
+            <div id="kq" style="margin-top: 30px; color: red">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function kiemtra() {
+        document.getElementById("thongbao").innerHTML = "";
+
+        var n = document.getElementById("n").value;
+
+        if (n < 1 || n > 100) {
+            document.getElementById("thongbao").innerHTML = "Vui lòng nhập số nguyên dương thuộc [1 - 100]!!";
+        } else {
+            var tong = 0;
+            for (var i = 1; i <= n; i++) {
+                if ( (i % 3 != 0) && (i % 5 == 0)) {
+                    tong += i;
+                    console.log(i);
+                }
+            }
+
+            document.getElementById("kq").innerHTML = "Tổng các số từ 1 - " + n + " chia hết cho 5 và không chia hết cho 3 là : " + tong;
+        }
+    }
+</script>
+
+
+
+</body>
+</html>
