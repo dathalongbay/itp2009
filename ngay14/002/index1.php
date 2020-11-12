@@ -19,6 +19,11 @@
 
         <select name="ngay">
             <option value="">Chọn ngày sinh</option>
+            <?php 
+            for ($ngay = 1; $ngay <= 31; $ngay++) {
+                echo "<option value=\"$ngay\">Ngày $ngay</option>";
+            }
+            ?>
         </select>
 
         <select name="thang">
@@ -29,5 +34,8 @@
             <option value="">Chọn năm sinh</option>
         </select>
     </form>
+
+
+
 </body>
 </html>
