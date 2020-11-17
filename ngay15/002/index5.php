@@ -24,22 +24,18 @@ $cities1 = array("hà nội", "hồ chí minh", "đà nẵng", "hải phòng");
         </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>hà nội</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>hồ chí minh</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>hà nội</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>hà nội</td>
-            </tr>
+            <?php
+            if (is_array($cities1) && !empty($cities1)) {
+                for ($i = 0; $i < count($cities1); $i++) {
+                    ?>
+                    <tr>
+                        <td><?php echo ($i + 1) ?></td>
+                        <td><?php echo $cities1[$i] ?></td>
+                    </tr>
+                    <?php
+                }
+            }
+            ?>
         </tbody>
     </table>
 </div>
