@@ -22,6 +22,22 @@
     echo "<br>" . $cities[1];
     echo "<br>" . $cities[2];
     echo "<br>" . $cities[3];
+
+    // thay đổi giá trị của 1 phần tử
+    $cities[0] = "thăng long";
+    $cities[1] = "sài gòn";
+
+    echo "<pre>";
+    print_r($cities);
+    echo "</pre>";
+
+    // thêm 1 phần tử
+    $cities[4] = "cần thơ";
+
+    echo "<pre>";
+    print_r($cities);
+    echo "</pre>";
+
     ?>
 </body>
 </html>
