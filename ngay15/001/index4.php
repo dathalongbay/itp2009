@@ -30,13 +30,13 @@
         </tr>
 
         <?php
-        for($i = 1; $i <= 15; $i++) {
-            echo "<tr>
-            <td>$i</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-        </tr>";
-        }
+        for($i = 1; $i <= 15; $i++) { ?>
+            <tr>
+                <td><?php echo $i ?></td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+            </tr>
+        <?php }
         ?>
 
         </tbody>

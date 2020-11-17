@@ -30,13 +30,15 @@
         </tr>
 
         <?php
+        $htmlTr = "";
         for($i = 1; $i <= 15; $i++) {
-            echo "<tr>
-            <td>$i</td>
+            $htmlTr .= "<tr>
+            <td>" .$i. "</td>
             <td>Doe</td>
             <td>john@example.com</td>
         </tr>";
         }
+        echo $htmlTr;
         ?>
 
         </tbody>
