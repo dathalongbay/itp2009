@@ -30,7 +30,7 @@
         2 => [
             "name" => "đà nẵng",
             "GDP" => "50.000.000$",
-            "district" => ["quận sơn trà", "quận ngũ hành sơn", "quận hải châu"]
+            "district" => ["quận sơn trà", "quận ngũ hành sơn"]
         ]
     ];
 
@@ -51,16 +51,30 @@
             </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Hà nội</td>
-                    <td>100.000.000$</td>
-                    <td>3</td>
-                    <td>
-                        <div>quận tây hồ</div>
-                        <div>quận hoàn kiếm</div>
-                        <div>quận hai bà trưng</div>
-                    </td>
-                </tr>
+
+                <?php
+                if (is_array($cities1) && !empty($cities1)) {
+                    foreach($cities1 as $keyCity => $city) {
+                        ?>
+                        <tr>
+                            <td><?php echo $city["name"] ?></td>
+                            <td><?php echo $city["GDP"] ?></td>
+                            <td><?php echo count($city["district"]) ?></td>
+                            <td>
+                                <?php if (is_array($city["district"]) && !empty($city["district"])) {
+                                    foreach($city["district"] as $district) {
+                                        ?>
+                                        <div><?php echo $district ?></div>
+                                        <?php
+                                    }
+                                }?>
+                            </td>
+                        </tr>
+                        <?php
+                    }
+                }
+                ?>
+
             </tbody>
         </table>
     </div>
