@@ -20,17 +20,17 @@
     <?php
     $cities = [];
     // thêm các phần tử cho mảng này
-    $cities[] = [
+    $cities[0] = [
         "name" => "hà nội",
         "district" => ["quận tây hồ", "quận hoàn kiếm", "quận hai bà trưng"]
     ];
 
-    $cities[] = [
+    $cities[1] = [
         "name" => "hồ chí minh",
         "district" => ["quận 1", "quận 2", "quận gò vấp"]
     ];
 
-    $cities[] = [
+    $cities[2] = [
         "name" => "đà nẵng",
         "district" => ["quận sơn trà", "quận ngũ hành sơn", "quận hải châu"]
     ];
@@ -49,6 +49,35 @@
 
     echo "<br>" . $cities[2]['district'][1];
 
+    // thêm quận cho hà nội
+    $cities[0]['district'][3] = "quận long biên";
+
+    // sửa quận
+    $cities[0]['district'][0] = "quận tây hồ 1";
+
+    // hủy quận hoàn kiếm
+    unset($cities[0]['district'][1]);
+
+    echo "<pre>";
+    print_r($cities);
+    echo "</pre>";
+
+
+    // khai báo từ đầu các phần tử của mảng
+    $cities1 = [
+        0 => [
+            "name" => "hà nội",
+            "district" => ["quận tây hồ", "quận hoàn kiếm", "quận hai bà trưng"]
+        ],
+        1 => [
+            "name" => "hồ chí minh",
+            "district" => ["quận 1", "quận 2", "quận gò vấp"]
+        ],
+        2 => [
+            "name" => "đà nẵng",
+            "district" => ["quận sơn trà", "quận ngũ hành sơn", "quận hải châu"]
+        ]
+    ];
     ?>
 
 </body>
