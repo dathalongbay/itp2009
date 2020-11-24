@@ -17,7 +17,7 @@
         giá tiền cho từng loại phòng như sau :
         phòng đơn 300.000/ngày
         phòng đôi 500.000/ngày
-        phòng đôi 1000.000/ngày
+        phòng VIP 1000.000/ngày
         - nếu đi kèm trẻ em sẽ + thêm 100.000 cho mỗi ngày
         - nếu lấy hóa đơn GTGT sẽ + thêm 10% tổng số tiền cần thanh toán
 
