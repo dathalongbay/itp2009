@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<form name="" action="">
+<form name="loichao" method="post" action="http://localhost/itp2009/ngay17/002/process1.php">
     <p>
         <label>Họ tên</label>
         <input type="text" name="hoten" value="">
