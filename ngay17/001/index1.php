@@ -20,6 +20,11 @@
     $child = 0;
     $vat = 0;
 
+    $room_total = 0;
+    $child_total = 0;
+    $tax_total = 0;
+    $total = 0;
+
     if (isset($_POST["days"]) && isset($_POST["type_room"])) {
         $days = $_POST["days"];
         $type_room = $_POST["type_room"];
@@ -34,7 +39,30 @@
         $child = isset($_POST["child"]) && ($_POST["child"] == 1) ? 1 : 0;
         $vat = isset($_POST["vat"]) && ($_POST["vat"] == 1) ? 1 : 0;
 
+        $price = 0;
+        if ($type_room == 1) {
+            $price = 300000;
+        } elseif($type_room == 2) {
+            $price = 500000;
+        } elseif($type_room == 3) {
+            $price = 1000000;
+        }
 
+        // tiền phòng
+        $room_total = $days*$price;
+
+        // phụ phí trẻ em
+        if ($child == 1) {
+            $child_total = $days*100000;
+        }
+
+        $room_total_child =  $room_total + $child_total;
+
+        if ($vat == 1) {
+            $tax_total = 0.1*$room_total_child;
+        }
+
+        $total = $room_total_child + $tax_total;
     }
     ?>
 
@@ -118,10 +146,10 @@
     </form>
 
     <div>
-        <p>tiền phòng: ?</p>
-        <p>phụ phí cho trẻ em ( nếu có ): ?</p>
-        <p>thuế GTGT: ?</p>
-        <p>tổng số tiền phải trả: ?</p>
+        <p>tiền phòng: <?php echo $room_total ?></p>
+        <p>phụ phí cho trẻ em ( nếu có ): <?php echo $child_total ?></p>
+        <p>thuế GTGT: <?php echo $tax_total ?></p>
+        <p>tổng số tiền phải trả: <?php echo $total ?></p>
     </div>
 
 </body>
