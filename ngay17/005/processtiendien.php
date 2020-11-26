@@ -13,6 +13,91 @@
 echo "<pre>";
 print_r($_GET);
 echo "</pre>";
+
+// gán kwh tiêu thụ
+$kwh = (isset($_GET["sodien"]) && $_GET["sodien"] > 0) ? (int) $_GET["sodien"] : 0;
+// 6 biến lưu trữ số tiền cần phải trả trên từng kwh cho từng bậc
+$t1 = 1678;
+$t2 = 1734;
+$t3 = 2014;
+$t4 = 2536;
+$t5 = 2834;
+$t6 = 2927;
+// 6 biến lưu trữ số kwh tiêu thu cho từng bậc
+$x1 = $x2 = $x3 = $x4 = $x5 = $x6 = 0;
+
+// 6 biến lưu trữ số tiền phải trả cho từng bậc
+$m1 = $m2 = $m3 = $m4 = $m5 = $m6 = 0;
+
+// tổng số tiền phải trả
+$money = 0;
+
+// chia thành 6 nhóm trường hợp
+// sử dụng if elseif
+if ($kwh > 0 && $kwh <= 50) {
+    // ví dụ 20 số điện
+    $x1 = $kwh;
+    $m1 = $kwh*$t1;
+    $money = $kwh*$t1;
+} elseif ($kwh > 50 && $kwh <= 100) {
+    // ví dụ 80 số điện
+    $x1 = 50;
+    $x2 = $kwh - $x1;
+    $m1 = $x1*$t1;
+    $m2 = $x2*$t2;
+    $money = $m1 + $m2;
+} elseif ($kwh > 100 && $kwh <= 200) {
+    // ví dụ 110 số điện
+    $x1 = 50;
+    $x2 = 50;
+    $x3 = $kwh-$x1-$x2;
+    $m1 = $x1*$t1;
+    $m2 = $x2*$t2;
+    $m3 = $x3*$t3;
+    $money = $m1 + $m2 + $m3;
+} elseif ($kwh > 200 && $kwh <= 300) {
+    // ví dụ 210 số điện
+    $x1 = 50;
+    $x2 = 50;
+    $x3 = 100;
+    $x4 = $kwh-$x1-$x2-$x3;
+    $m1 = $x1*$t1;
+    $m2 = $x2*$t2;
+    $m3 = $x3*$t3;
+    $m4 = $x4*$t4;
+    $money = $m1 + $m2 + $m3 + $m4;
+} elseif ($kwh > 300 && $kwh <= 400) {
+    // ví dụ 330 số điện
+    $x1 = 50;
+    $x2 = 50;
+    $x3 = 100;
+    $x4 = 100;
+    $x5 = $kwh-$x1-$x2-$x3-$x4;
+    $m1 = $x1*$t1;
+    $m2 = $x2*$t2;
+    $m3 = $x3*$t3;
+    $m4 = $x4*$t4;
+    $m5 = $x5*$t5;
+    $money = $m1 + $m2 + $m3 + $m4 + $m5;
+} elseif ($kwh > 400) {
+    // ví dụ 500 số điện
+    $x1 = 50;
+    $x2 = 50;
+    $x3 = 100;
+    $x4 = 100;
+    $x5 = 100;
+    $x6 = $kwh-$x1-$x2-$x3-$x4-$x5;
+    $m1 = $x1*$t1;
+    $m2 = $x2*$t2;
+    $m3 = $x3*$t3;
+    $m4 = $x4*$t4;
+    $m5 = $x5*$t5;
+    $m6 = $x6*$t6;
+    $money = $m1 + $m2 + $m3 + $m4 + $m5 + $m6;
+} else {
+    // tiêu thụ 0 số điện
+}
+
 ?>
 
 <h1>Hãy in ra số tiền phải trả :</h1>
@@ -50,8 +135,8 @@ echo "</pre>";
         <td>
             <p>1.678</p>
         </td>
-        <td>50</td>
-        <td>83900</td>
+        <td><?php echo $x1 ?></td>
+        <td><?php echo $m1 ?></td>
     </tr>
     <tr>
         <td>
@@ -121,9 +206,12 @@ echo "</pre>";
     </tbody>
 </table>
 
-    <p><strong>Tổng số tiền điện : ?</strong></p>
-    <p><strong>Thuế GTGT 10% : ?</strong></p>
-    <p><strong>Tổng tiền phải thanh toán : ? ( tiền điện + thuê )</strong></p>
+    <p><strong>Tổng số tiền điện : <?php echo $money ?></strong></p>
+<?php
+$tax = 0.1*$money;
+?>
+    <p><strong>Thuế GTGT 10% : <?php echo $tax; ?></strong></p>
+    <p><strong>Tổng tiền phải thanh toán : <?php echo ($money+$tax) ?></strong></p>
 
 
 
