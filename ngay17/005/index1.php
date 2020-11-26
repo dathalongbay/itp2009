@@ -109,7 +109,7 @@
 <h1>hãy sử dụng method get và gửi dữ liệu đến file processtiendien.php
 đồng thời tính ra số tiền phải trả </h1>
 
-<form name="tiendien" method="get" action="">
+<form name="tiendien" method="get" action="http://localhost/itp2009/ngay17/005/processtiendien.php">
     <p>
         <label>Tổng số điện tiêu thụ ( nhập từ 1 đến 2000 )</label>
         <input name="sodien" type="text" value="">
