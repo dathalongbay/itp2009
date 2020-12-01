@@ -23,14 +23,27 @@
         print_r($_FILES);
         echo "</pre>";
 
+
+
         $target_dir = "uploads/";
 
         if (!file_exists($target_dir)) {
             mkdir($target_dir, 0777, true);
         }
 
+        echo "<br> *** : " . $_FILES["uploadimage"]["name"];
+        echo "<br> *** : " . basename($_FILES["uploadimage"]["name"]);
+
+
+        // đường dẫn mà chúng ta muốn upload file đến
         $target_file = $target_dir . basename($_FILES["uploadimage"]["name"]);
 
+        echo "<br> **** " .  $target_file;
+        //die;
+
+        // move_uploaded_file("nguồn file", "đích đến của file");
+        echo "<br> **** " .  $_FILES["uploadimage"]["tmp_name"];
+        //die;
         if (move_uploaded_file($_FILES["uploadimage"]["tmp_name"], $target_file)) {
             echo "File ". htmlspecialchars( basename( $_FILES["uploadimage"]["name"])). " đã được tải lên thành công.";
         } else {
