@@ -17,11 +17,21 @@
     $dir = "list/";
 
     // Sort in ascending order - this is default
+// đọc nội dung các file và folder bên trong folder list
     $listFiles = scandir($dir);
 
+    echo "<pre>";
+    print_r($listFiles);
+    echo "</pre>";
+
     if (isset($_POST["list"]) && $_POST["list"]) {
+        // đường dẫn của file chúng ta đang muốn xem
         $list = $dir.$_POST["list"];
+        echo "<br>" . $list;
+
+        // mỏ file ra để đọc
         $myfile = fopen($list, "r") or die("Unable to open file!");
+        // filesize($list) trả về kích thước file
         $content = fread($myfile,filesize($list));
         fclose($myfile);
     }
@@ -39,11 +49,13 @@
                         <option value="">-- Chọn file bên trong thư mục--</option>
                         <?php
                         foreach($listFiles as $f1) {
-                            if (!in_array($f1, [".", ".."])) {
+                            //echo "<br>" . $f1;
+                            $except = [".", ".."];
+                            //if (!in_array($f1, $except)) {
                                 ?>
                                 <option value="<?php echo $f1 ?>"><?php echo $f1 ?></option>
                                 <?php
-                            }
+                            //}
                         }
                         ?>
 
