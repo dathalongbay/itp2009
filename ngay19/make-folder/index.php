@@ -23,6 +23,7 @@ if (isset($_POST["folder_path"])) {
     if (!file_exists($folder_path)) {
         //mkdir('path/to/directory', 0777, true);
         mkdir($folder_path, 0777, true);
+        //file_exists() kiểm tra file hay folder đã tồn tại
         if (file_exists($folder_path)) {
             echo "<br> Tạo thư mục thành công";
         } else {
