@@ -23,6 +23,8 @@
         print_r($_FILES);
         echo "</pre>";
 
+        die;
+
         $target_dir = "uploads/";
 
         if (!file_exists($target_dir)) {
