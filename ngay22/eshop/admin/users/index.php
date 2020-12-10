@@ -46,7 +46,7 @@ echo "</pre>";
     <h1>Admin - quản trị người dùng</h1>
 
     <div>
-        <a href="" class="btn btn-info">Thêm người dùng</a>
+        <a href="<?php echo DOMAIN_SITE."/admin/users/create.php" ?>" class="btn btn-info">Thêm người dùng</a>
     </div>
 
     <div class="row">
