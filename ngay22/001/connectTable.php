@@ -39,6 +39,7 @@ product_intro VARCHAR(255),
 product_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ";
 
+    
     $connection->exec($sql);
 
 }catch (Exception $e) {
