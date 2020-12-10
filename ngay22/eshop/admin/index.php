@@ -1,10 +1,9 @@
 <?php
-$path_define = dirname(__FILE__);
-$path_define = dirname($path_define);
-echo $path_define;
-include_once $path_define."/define.php";
-
+// nạp file theo đường dẫn tương đối
+include_once "../define.php";
 echo "<br>" . DOMAIN_SITE;
+echo "<br>" . SITE_PATH;
+
 ?>
 
 <!doctype html>
