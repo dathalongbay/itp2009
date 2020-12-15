@@ -75,7 +75,7 @@ echo "</pre>";
 
                             <td>
 
-                                <a href="" class="btn btn-warning">Sửa</a>
+                                <a href="<?php echo DOMAIN_SITE."/admin/users/edit.php?id=$userId" ?>" class="btn btn-warning">Sửa</a>
                                 <a href="<?php echo DOMAIN_SITE."/admin/users/delete.php?id=$userId" ?>" class="btn btn-danger">Xóa</a>
 
                             </td>
