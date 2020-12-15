@@ -65,6 +65,7 @@ echo "</pre>";
                 <tbody>
                 <?php if (is_array($users) && !empty($users)) {
                     foreach($users as $user) {
+                        $userId = (int)$user["id"];
                         ?>
                         <tr>
                             <td><?php echo $user["id"] ?></td>
@@ -75,7 +76,7 @@ echo "</pre>";
                             <td>
 
                                 <a href="" class="btn btn-warning">Sửa</a>
-                                <a href="" class="btn btn-danger">Xóa</a>
+                                <a href="<?php echo DOMAIN_SITE."/admin/users/delete.php?id=$userId" ?>" class="btn btn-danger">Xóa</a>
 
                             </td>
                         </tr>
