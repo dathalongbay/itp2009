@@ -6,14 +6,28 @@ include_once "../../lib/connect.php";
 
 var_dump($connection);
 
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";
+
 $sql = "SELECT * FROM users";
 $keyword = "";
 if (isset($_POST["keyword"]) && (strlen($_POST["keyword"])  > 2) ) {
     $keyword = $_POST["keyword"];
     $sql = "SELECT * FROM users WHERE username LIKE '%$keyword%'";
     echo $sql;
-
 }
+
+if (isset($_POST["order"]) && isset($_POST["order_dir"])) {
+    $order = $_POST["order"];
+    $orderDir = $_POST["order_dir"];
+
+    $sql = $sql . " " . "ORDER BY " . $order . " " . $orderDir;
+} else {
+    $sql = $sql . " ORDER BY id ASC";
+}
+
+echo "<br> " . $sql . "<br>";
 
 // sử dụng prepare() để chuẩn bị thực hiện câu SQL sau đó gán cho biến $stmt
 $stmt = $connection->prepare($sql);
@@ -56,7 +70,23 @@ echo "</pre>";
     <div>
         <form action="" name="search" method="post">
             <input name="keyword" value="<?php echo $keyword ?>" type="text" placeholder="nhập vào từ khóa tối thiểu 3 ký tự">
-            <button type="submit" class="btn btn-success">Tìm kiếm</button>
+
+            <label for="">Sắp xếp</label>
+
+            <select name="order">
+                <option value="id">id</option>
+                <option value="username">username</option>
+                <option value="user_avatar">user_avatar</option>
+                <option value="user_birth">user_birth</option>
+            </select>
+
+            <select name="order_dir">
+                <option value="ASC">Tăng dần</option>
+                <option value="DESC">Giảm dần</option>
+            </select>
+
+
+            <button type="submit" class="btn btn-success">Lọc kết quả</button>
         </form>
     </div>
 
@@ -102,7 +132,6 @@ echo "</pre>";
 
                 </tbody>
             </table>
-
 
 
         </div>
