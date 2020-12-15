@@ -3,6 +3,49 @@ include_once "../../define.php";
 // nạp file kết nối đến CSDL
 include_once "../../lib/connect.php";
 
+?>
+
+
+<div style="background-color: pink">
+    <?php
+
+    // bắt đầu update từ đây
+    echo "<pre>";
+    print_r($_POST);
+    echo "</pre>";
+
+    if (count($_POST) > 1) {
+        // quá trình submit dữ liệu đi
+
+        $userIdUpdate = (int) $_POST["id"];
+        $newUserName = $_POST["username"];
+        $newUserAvatar = $_POST["user_avatar"];
+
+        $sql = "UPDATE users
+SET username='$newUserName', user_avatar='$newUserAvatar'
+WHERE id=$userIdUpdate";
+
+        echo $sql;
+
+        // Prepare statement
+
+        $stmt = $connection->prepare($sql);
+        // execute the query
+
+        $stmt->execute();
+
+        // echo a message to say the UPDATE succeeded
+
+        echo "<div style='color:red'>".$stmt->rowCount() . " bản ghi được cập nhật thành công </div>";
+
+    }
+
+
+    ?>
+</div>
+
+
+<?php
 if (isset($_GET["id"]) && ($_GET["id"] > 0)) {
     $userId = (int) $_GET["id"];
 
@@ -33,9 +76,8 @@ if (isset($_GET["id"]) && ($_GET["id"] > 0)) {
 
 
 }
-
-
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -62,6 +104,8 @@ if (isset($_GET["id"]) && ($_GET["id"] > 0)) {
                 <form name="usersubmit" method="post" action="">
                     <div class="form-group">
                         <label for="text">ID:</label>
+
+                        <input type="hidden" name="id" value="<?php echo $user["id"] ?>">
                         <?php echo $user["id"] ?>
                     </div>
 
@@ -74,7 +118,7 @@ if (isset($_GET["id"]) && ($_GET["id"] > 0)) {
                         <input type="text" name="user_avatar" class="form-control" placeholder="Enter" id="text" value="<?php echo $user["user_avatar"] ?>">
                     </div>
 
-                    <button type="submit" class="btn btn-primary">thêm người dùng</button>
+                    <button type="submit" class="btn btn-primary">sửa người dùng</button>
                 </form>
             </div>
         </div>
