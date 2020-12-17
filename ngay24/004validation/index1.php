@@ -26,6 +26,8 @@ if (isset($_POST) & !empty($_POST)) {
 
 
         $studentNameValidate = preg_match_all($patternStudentName, $studentName, $matches);
+        // $studentNameValidate bằng 0 , null , false
+
         if (!$studentNameValidate) {
             $errors["name"] = "tên sinh viên không đúng";
         }
