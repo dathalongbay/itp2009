@@ -12,10 +12,22 @@ echo "</pre>";
 
 $sql = "SELECT * FROM users";
 $keyword = "";
+
+// khai báo 1 số biến cho phần phần trang
+$recordsPerPage = 10;
+$currentPage = isset($_GET["page"]) ? $_GET["page"] : 1;
+$currentPage = ($currentPage > 0) ? $currentPage : 1;
+$recordStart = ($currentPage-1)*$recordsPerPage;
+
+$countSql = " SELECT COUNT(*) AS total FROM users";
+
+
 if (isset($_POST["keyword"]) && (strlen($_POST["keyword"])  > 2) ) {
     $keyword = $_POST["keyword"];
     $sql = "SELECT * FROM users WHERE username LIKE '%$keyword%'";
     echo $sql;
+
+    $countSql .= " WHERE username LIKE '%$keyword%'";
 }
 
 if (isset($_POST["order"]) && isset($_POST["order_dir"])) {
@@ -26,6 +38,8 @@ if (isset($_POST["order"]) && isset($_POST["order_dir"])) {
 } else {
     $sql = $sql . " ORDER BY id ASC";
 }
+
+$sql .= " LIMIT $recordStart,$recordsPerPage";
 
 echo "<br> " . $sql . "<br>";
 
@@ -41,10 +55,16 @@ $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 // $stmt->fetchAll(); LẤY TẤT CẢ CÁC BẢN GHI THEO CÂU SQL TỪ $stmt
 // mà đã được setFetchMode theo chế độ mảng hay là mảng object
 $users = $stmt->fetchAll();
-var_dump($users);
-echo "<pre>";
-print_r($users);
-echo "</pre>";
+
+$stmtCount = $connection->prepare($countSql);
+$stmtCount->execute();
+$resultCount = $stmtCount->setFetchMode(PDO::FETCH_ASSOC);
+$usersCount = $stmtCount->fetchAll();
+$usersCount = $usersCount[0];
+$total = $usersCount["total"];
+var_dump($total);
+$numberPages = ceil($total/$recordsPerPage);
+var_dump($numberPages);
 
 // $rows là tập hợp mảng của các bản ghi
 ?>
@@ -132,6 +152,14 @@ echo "</pre>";
 
                 </tbody>
             </table>
+
+            <ul class="pagination">
+                <?php for($i = 1; $i <= $numberPages; $i++) {
+                    ?>
+                    <li class="page-item"><a class="page-link" href="?page=<?php echo $i ?>"><?php echo $i ?></a></li>
+                    <?php
+                }?>
+            </ul>
 
 
         </div>

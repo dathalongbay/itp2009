@@ -9,15 +9,22 @@ var_dump($_POST);
 
 if (count($_POST) > 0) {
     if (isset($_POST["username"]) && isset($_POST["user_avatar"]) && (strlen($_POST["username"]) > 0) && (strlen($_POST["user_avatar"]) > 0)) {
-        $username = $_POST["username"];
-        $user_avatar = $_POST["user_avatar"];
 
-        $sql = "INSERT INTO users (username, user_avatar)
+
+        for ($i = 1; $i <= 100; $i++) {
+
+            $username = $_POST["username"] . " " . $i;
+            $user_avatar = $_POST["user_avatar"];
+
+            $sql = "INSERT INTO users (username, user_avatar)
   VALUES ('$username', '$user_avatar')";
 
-        echo $sql;
+            echo $sql;
 
-        $response = $connection->exec($sql);
+            $response = $connection->exec($sql);
+        }
+
+
 
         if ($response == 1) {
             echo "<div style='color:red'>Đã insert thành công</div>";
