@@ -4,7 +4,7 @@ session_start();
 // biến mảng chứa lỗi
 $errors = [];
 // gán mặc định
-$studentName = $studentPhone = $studentEmail = $studentBirth = $studentGender = $studentNote = $studentCity = $studentSchoolMove = "";
+$studentName = $studentPhone = $studentEmail = $studentBirth = $studentGender = $studentNote = $studentCity = $studentSchoolMove = $studentGithub = $studentPoint = "";
 
 // có dữ liệu submit đi hay không
 if (isset($_POST) & !empty($_POST)) {
@@ -103,7 +103,15 @@ if (isset($_POST) & !empty($_POST)) {
     }
 
     // chuyển trường
-    $studentSchoolMove = $_POST["school_move"];
+    $studentSchoolMove = isset($_POST["school_move"]) ? $_POST["school_move"] : "";
+
+    if (isset($_POST["point"])) {
+        $studentPoint = $_POST["point"];
+    }
+
+    if (isset($_POST["website"])) {
+        $studentGithub  = $_POST["website"];
+    }
 
     // thành công
     if (empty($errors)) {
@@ -210,12 +218,12 @@ if (isset($_POST) & !empty($_POST)) {
 
         <div>
             <label>Link github ( bắt đầu bằng https://github.com/username</label>
-            <input type="text" name="website" value="" autocomplete="off">
+            <input type="text" name="website" value="<?php echo $studentGithub ?>" autocomplete="off">
         </div>
 
         <div>
             <label>Điểm sinh viên (0 - 10)</label>
-            <input type="number" name="point" value="" autocomplete="off">
+            <input type="number" name="point" value="<?php echo $studentPoint ?>" autocomplete="off">
         </div>
 
         <div>
