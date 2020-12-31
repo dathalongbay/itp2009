@@ -9,9 +9,15 @@ class Router {
 
 
         echo "<br> " . __METHOD__;
-        $controller = new DienthoaiController();
+        $controllerDefault = "Dienthoai";
+        $controllerRequest = isset($_REQUEST["controller"]) ? $_REQUEST["controller"] : $controllerDefault;
+        $controllerRequest = ucfirst($controllerRequest);
+        $controllerRequest = $controllerRequest."Controller";
+        $controller = new $controllerRequest();
 
-        $controller->indexAction();
+        $actionDefault = "indexAction";
+        $actionRequest = isset($_REQUEST["action"]) ? $_REQUEST["action"] : $actionDefault;
+        $controller->$actionRequest();
     }
 
 }

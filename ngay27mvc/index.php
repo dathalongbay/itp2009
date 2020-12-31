@@ -1,4 +1,5 @@
 <?php
+session_start();
 /*
 nạp tất cả các file cần thiết cho ứng dụng mvc */
 include_once "class/db.php";

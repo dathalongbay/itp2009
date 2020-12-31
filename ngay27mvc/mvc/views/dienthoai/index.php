@@ -14,10 +14,25 @@
 
 <?php
 
-print_r($mobiles[0]);
-echo "<br>" . __FILE__;
-echo "<br>" . $test;
-echo "<br>" . $a;
+
+echo "<pre>";
+print_r($_SESSION);
+echo "</pre>";
+
+if (isset($_SESSION["action"]) && isset($_SESSION["info"])) {
+    if ($_SESSION["info"] == 1) {
+        echo "<div style='background-color: green; color: white'>
+ Xóa thành công
+</div>";
+    } else {
+        echo "<div style='background-color: red; color: white'>
+ Xóa thất bại</div>";
+    }
+
+    unset($_SESSION["action"]);
+    unset($_SESSION["info"]);
+
+}
 
 ?>
 
@@ -62,9 +77,9 @@ echo "<br>" . $a;
                             ?>
                         </td>
                         <td>
-                            <a href="<?php echo $mobile["ma_dienthoai"] ?>">
+                            <span onclick="confirmDelete('index.php?controller=dienthoai&action=deleteAction&id=<?php echo $mobile["ma_dienthoai"] ?>')">
                                 Xóa
-                            </a>
+                            </span>
                         </td>
                     </tr>
 
@@ -79,5 +94,17 @@ echo "<br>" . $a;
 
 </div>
 
+<script>
+
+    function confirmDelete(link) {
+        var r = confirm("Xác nhận xóa ?");
+        if (r == true) {
+            window.location.href = link;
+        } else {
+
+        }
+    }
+
+</script>
 </body>
 </html>

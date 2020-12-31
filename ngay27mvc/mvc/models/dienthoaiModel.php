@@ -23,4 +23,11 @@ class DienthoaiModel extends Database {
     }
 
 
+    public function delete($id) {
+
+        $sql = "DELETE FROM dienthoai WHERE ma_dienthoai = $id";
+        return $this->connection->exec($sql);
+    }
+
+
 }
