@@ -9,6 +9,7 @@ class Database {
 
     public function __construct()
     {
+        echo "<br> " . __METHOD__;
         if (!$this->connection) {
             $this->connect();
         }

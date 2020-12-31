@@ -10,6 +10,7 @@ include_once "mvc/controllers/dienthoaiController.php";
 // nạp class router vào
 include "mvc/route.php";
 
+echo "<br> index.php Main";
 $route = new Router();
 $route->run();
 
