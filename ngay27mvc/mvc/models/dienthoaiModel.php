@@ -7,7 +7,10 @@ class DienthoaiModel extends Database {
         echo "<br> " . __METHOD__;
         // $this->connection
 
-        $sql = "SELECT * FROM dienthoai";
+        $sql = "SELECT *
+        FROM dienthoai 
+        LEFT JOIN hang_dienthoai
+        ON dienthoai.ma_hang = hang_dienthoai.ma_hang";
 
         $stmt = $this->connection->prepare($sql);
         $stmt->execute();
