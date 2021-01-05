@@ -1,3 +1,19 @@
+<?php
+include_once "db.php";
+
+$db = new Database();
+$connection = $db->connection;
+
+$sql = "SELECT * FROM devvn_tinhthanhpho";
+
+$stmt = $connection->prepare($sql);
+$stmt->execute();
+
+$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+$provinces = $stmt->fetchAll();
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,6 +30,19 @@
         ajax là 1 kỹ thuật load dữ liệu hay load 1 phần trang web
         mà không cần phải refresh F5 lại trang
     </pre>
+
+    <select name="tinh" id="tinh">
+        <option value="0">Chọn tỉnh tp</option>
+        <?php foreach($provinces as $province) : ?>
+            <option value="<?php echo $province["matp"] ?>"><?php echo $province["name"] ?></option>
+        <?php endforeach; ?>
+    </select>
+
+    <select name="quan" id="quan">
+        <option value="0">Danh sách quận</option>
+    </select>
+
+
 
 </body>
 </html>
