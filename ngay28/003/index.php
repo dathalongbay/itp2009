@@ -42,6 +42,14 @@ $provinces = $stmt->fetchAll();
         <option value="0">Danh sách quận</option>
     </select>
 
+    <pre>
+        search : hướng dẫn ajax php
+        search tiếng anh : ajax php tutorial
+        tutorial là hướng dẫn
+        https://freetuts.net/hoc-php/hoc-ajax
+        https://viblo.asia/p/mot-so-vi-du-su-dung-ajax-RnB5pGablPG
+    </pre>
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
@@ -68,21 +76,32 @@ $provinces = $stmt->fetchAll();
                         //response dữ liệu trả về từ máy chủ
 
                         console.log(response);
+                        console.log(typeof response);
+                        if (typeof response == "object") {
+                            var response1 = response;
+                        } else {
+                            var response1 = JSON.parse(response);
+                        }
+
+                        console.log(response1);
+                        console.log(response1.message);
+                        console.log(response1.status);
+                        console.log(response1.html);
+
+                        if (response1.html != "undefined") {
+                            $("select#quan").html(response1.html);
+                        }
+
                     },
                     error: function (xhr){
-                        console.log(response);
+                        console.log(xhr);
                     }
                 };
 
                 $.ajax(ajaxSetup);
 
 
-                // gán cứng
-                $("select#quan").html('' +
-                    ' <option value="0">Danh sách quận 1</option>'  +
-                    ' <option value="0">Danh sách quận 2</option>'  +
-                    ' <option value="0">Danh sách quận 3</option>'
-                );
+
 
             });
 
