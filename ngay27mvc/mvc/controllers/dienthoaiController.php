@@ -7,15 +7,21 @@ class DienthoaiController {
     public function indexAction() {
         echo "<br> " . __METHOD__;
         $model = new DienthoaiModel();
-        $mobiles = $model->listData();
+
+        // gán giá trị mặc định cho keyword
+        $keyword = "";
+
+        if (isset($_GET["keyword"]) && strlen($_GET["keyword"]) > 0) {
+            $keyword = $_GET["keyword"];
+        }
+
+        $mobiles = $model->listData($keyword);
         $test = "ABC";
         $a = "12345";
 
         // gọi view
         // include_once "mvc/views/dienthoai/index.php";
         // include_once "../views/dienthoai/index.php";
-
-
 
         include_once "mvc/views/dienthoai/index.php";
 

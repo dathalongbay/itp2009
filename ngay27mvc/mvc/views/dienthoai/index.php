@@ -43,6 +43,11 @@ if (isset($_SESSION["action"]) && isset($_SESSION["info"])) {
         <div class="col-md-12">
             <h2>Basic Table</h2>
             <p>The .table class adds basic styling (light padding and horizontal dividers) to a table:</p>
+            <form name="search" method="get" action="">
+                <input type="text" name="keyword" value="<?php echo $keyword ?>">
+                <button>Tìm kiếm</button>
+            </form>
+
             <table class="table">
                 <thead>
                 <tr>
