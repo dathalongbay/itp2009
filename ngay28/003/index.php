@@ -51,7 +51,30 @@ $provinces = $stmt->fetchAll();
             $('select#tinh').on("change", function (){
 
                 var matp = $(this).val();
-                alert(matp);
+                //alert(matp);
+
+                var dataSend = {
+                    matinh:matp
+                };
+
+                var ajaxSetup = {
+                    url:"http://localhost/itp2009a/ngay28/003/ajax.php",
+                    // dữ liệu gửi đi
+                    data: dataSend,
+                    // method
+                    type:"POST",
+                    dataType: "json",
+                    success: function (response){
+                        //response dữ liệu trả về từ máy chủ
+
+                        console.log(response);
+                    },
+                    error: function (xhr){
+                        console.log(response);
+                    }
+                };
+
+                $.ajax(ajaxSetup);
 
 
                 // gán cứng
