@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <pre>
+        mảng trong json
+        ví dụ :
+        [ "Ford", "BMW", "Fiat" ]
+
+        ví dụ :
+        {
+            "name":"John",
+            "age":30,
+            "cars":[ "Ford", "BMW", "Fiat" ]
+        }
+
+        phức tạp hơn :
+        myObj = {
+          "name":"John",
+          "age":30,
+          "cars": [
+            { "name":"Ford", "models":[ "Fiesta", "Focus", "Mustang" ] },
+            { "name":"BMW", "models":[ "320", "X3", "X5" ] },
+            { "name":"Fiat", "models":[ "500", "Panda" ] }
+          ]
+         }
+    </pre>
+
+    <div id="target">
+
+    </div>
+
+    <script>
+        var myObj = {
+            "name":"John",
+            "age":30,
+            "cars": [
+                { "name":"Ford", "models":[ "Fiesta", "Focus", "Mustang" ] },
+                { "name":"BMW", "models":[ "320", "X3", "X5" ] },
+                { "name":"Fiat", "models":[ "500", "Panda" ] }
+            ]
+        };
+
+        var myJson = JSON.stringify(myObj);
+        console.log(myJson);
+
+        document.getElementById("target").innerText = myJson;
+
+        var t2 = '{"name":"John","age":30,"cars":[{"name":"Ford","models":["Fiesta","Focus","Mustang"]},{"name":"BMW","models":["320","X3","X5"]},{"name":"Fiat","models":["500","Panda"]}]}';
+    </script>
+
+</body>
+</html>
