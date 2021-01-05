@@ -47,6 +47,24 @@ $provinces = $stmt->fetchAll();
 
     <script>
 
+        $(document).ready(function (){
+            $('select#tinh').on("change", function (){
+
+                var matp = $(this).val();
+                alert(matp);
+
+
+                // gán cứng
+                $("select#quan").html('' +
+                    ' <option value="0">Danh sách quận 1</option>'  +
+                    ' <option value="0">Danh sách quận 2</option>'  +
+                    ' <option value="0">Danh sách quận 3</option>'
+                );
+
+            });
+
+        });
+
     </script>
 
 
