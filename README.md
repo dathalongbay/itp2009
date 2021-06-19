@@ -8,3 +8,9 @@
 ### giáo trình phần mvc : https://sites.google.com/view/win-php/php-mvc
 ### giáo trình phần ajax : https://sites.google.com/view/win-php/chuy%C3%AAn-%C4%91%E1%BB%81-th%E1%BB%B1c-h%C3%A0nh/chuy%C3%AAn-%C4%91%E1%BB%81-4
 
+
+```
+https://sites.google.com/view/cmsv2/laravel-project
+https://sites.google.com/view/cmsv2/laravel-project-2
+```
+
