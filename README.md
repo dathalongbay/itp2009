@@ -10,7 +10,11 @@
 
 
 ```
+Phần 1
 https://sites.google.com/view/cmsv2/laravel-project
+Phần 2
 https://sites.google.com/view/cmsv2/laravel-project-2
+Code full :
+https://sites.google.com/view/laravel-site-2/d%E1%BB%B1-%C3%A1n-code-full
 ```
 
